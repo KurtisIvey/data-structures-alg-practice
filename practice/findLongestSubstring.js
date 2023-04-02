@@ -13,20 +13,20 @@ function findLongestSubstring(str) {
   let start = 0;
 
   for (let i = 0; i < str.length; i++) {
-    console.log(`current longest${longest}, , current start ${start}`);
-    console.log(seen);
     let char = str[i];
     if (seen[char]) {
+      // this is how we increment the start of the window.
+      // if the seen char in the object is incremented more than the current start, that indicates that is has been seen again
+      // every time the start is adjust by 1, that becomes the new threshold for the key value in the seen object
       start = Math.max(start, seen[char]);
-      console.log(`start redefined to ${start}`);
     }
     // index - beginning of substring + 1 (to include current in count)
-    console.log(
-      `longest about to be compared to redefine, current longest ${longest}, i: ${i}, start ${start}`
-    );
+    // this is how we calculate the longest count of not seeing a repeated char. add 1 because of zero start index
+    // longest is recalculated on every for loop pass
     longest = Math.max(longest, i - start + 1);
 
     // store the index of the next char so as to not double count
+    // seen char is incremented in the object
     seen[char] = i + 1;
   }
   return longest;
