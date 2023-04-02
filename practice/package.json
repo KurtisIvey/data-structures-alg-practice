@@ -5,7 +5,7 @@
   "main": "anagram.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon maxSubarraySum.js"
+    "dev": "nodemon findLongestSubstring.js"
   },
   "author": "",
   "license": "ISC",

@@ -47,46 +47,4 @@ function minSubArrayLen(nums, sum) {
   return minLen === Infinity ? 0 : minLen;
 }
 
-/* console.log(minSubArrayLen([2, 3, 1, 2, 9, 7], 7));
- */
-/*
-two params
-find smallest length of contiguous subarray that is greater than or equal to sum
-use sliding window pattern
-create start and end var for indexing through num list
-create total var to keep track, must have a running total to manipulate for sliding window pattern
-limit start to run while loop so long as it's less than nums.length
-create infinity var for minLen (later run compare via Math.mind(minLen , end - start))
-first while loop add total += nums[end]
-  if total < sum { end ++}
-  else if(total >= sum){
-    total -= nums[start]
-    minlen = Math.min(minlen, end - start)
-        start ++
-    allows us to then test for a smaller length by incrementing 
-  }
-*/
-
-function minSubArrLen(nums, sum) {
-  let start = 0;
-  let end = 0;
-  let total = 0;
-  let minLen = Infinity;
-
-  while (start < nums.length) {
-    if (total < sum && end < nums.length) {
-      total += nums[end];
-      end++;
-    } else if (total >= sum) {
-      minLen = Math.min(minLen, end - start);
-      total -= nums[start];
-      start++;
-    } else {
-      break;
-    }
-  }
-
-  return minLen === Infinity ? 0 : minLen;
-}
-
-console.log(minSubArrLen([1, 4, 16, 22, 5, 7, 8, 9, 10], 95));
+console.log(minSubArrayLen([2, 3, 1, 2, 9, 7], 7));
