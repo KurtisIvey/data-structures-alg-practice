@@ -12,7 +12,7 @@
 // max sum will then be determined to be the larger number of the two
 
 //
-
+/* 
 function maxSubarraySum(arr, num) {
   let tempSum = 0;
   let maxSum = 0;
@@ -30,3 +30,25 @@ function maxSubarraySum(arr, num) {
 }
 
 console.log(maxSubarraySum([100, 200, 300, 400], 2));
+ */
+
+function twoSum(arr, target) {
+  if (arr.length === 0) return false;
+  if (arr.length === 1 && arr[0] !== target) return false;
+
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === target) {
+      return [left, right];
+    } else if (sum > target) {
+      right--;
+    } else {
+      left++;
+      right = arr.length - 1;
+    }
+  }
+}
+
+console.log(twoSum([-1, -2, -3, -4, -5], 6));

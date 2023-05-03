@@ -7,7 +7,7 @@
 // else if avg !== target within while loop parameters, right ++
 //
 
-function averagePair(arr, target) {
+/* function averagePair(arr, target) {
   let left = 0;
   let right = arr.length - 1;
 
@@ -22,6 +22,7 @@ function averagePair(arr, target) {
     }
   }
   return false;
-}
+} 
 
 console.log(averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8));
+*/
