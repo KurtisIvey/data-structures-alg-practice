@@ -53,41 +53,23 @@ console.log(maxSubarraySum([100, 200, 300, 400], 2));
 
 console.log(twoSum([-1, -2, -3, -4, -5], 6)); */
 
-function merge(arr1, arr2) {
-  let left = 0;
-  let right = 0;
-  let sortedCombinedArr = [];
+function pivot(arr, start = 0, end = arr.length + 1) {
+  function swap(array, i, j) {
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  let pivot = arr[start];
+  let swapIdx = start;
 
-  while (left < arr1.length && right < arr2.length) {
-    if (arr1[left] <= arr2[right]) {
-      sortedCombinedArr.push(arr1[left]);
-      left++;
-    }
-    if (arr2[right] < arr1[left]) {
-      sortedCombinedArr.push(arr2[right]);
-      right++;
+  for (let i = start + 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
     }
   }
-  while (left < arr1.length) {
-    sortedCombinedArr.push(arr1[left]);
-    left++;
-  }
-  while (right < arr2.length) {
-    sortedCombinedArr.push(arr2[right]);
-    right++;
-  }
-  return sortedCombinedArr;
+  swap(arr, start, swapIdx);
+  return swapIdx;
 }
 
-function mergeSort(arr) {
-  if (arr.length <= 1) return arr;
-  //mergeSort()
-  // created mid point to guide slicing
-  let mid = Math.floor(arr.length / 2);
-  let left = mergeSort(arr.slice(0, mid));
-  let right = mergeSort(arr.slice(mid));
-
-  return merge(left, right);
-}
-
-console.log(mergeSort([2002, 5, 92, 6, 123, 200]));
+//console.log(mergeSort([2002, 5, 92, 6, 123, 200]));
