@@ -53,7 +53,7 @@ console.log(maxSubarraySum([100, 200, 300, 400], 2));
 
 console.log(twoSum([-1, -2, -3, -4, -5], 6)); */
 
-function pivot(arr, start = 0, end = arr.length + 1) {
+/* function pivot(arr, start = 0, end = arr.length + 1) {
   function swap(array, i, j) {
     let temp = array[i];
     array[i] = array[j];
@@ -70,6 +70,6 @@ function pivot(arr, start = 0, end = arr.length + 1) {
   }
   swap(arr, start, swapIdx);
   return swapIdx;
-}
+} */
 
 //console.log(mergeSort([2002, 5, 92, 6, 123, 200]));

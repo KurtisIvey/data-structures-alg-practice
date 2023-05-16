@@ -52,7 +52,6 @@ class Queue {
   // Removes and returns the value of the first node in the queue.
   dequeue() {
     if (!this.first) return null; // If the queue is empty, there is nothing to dequeue, so return null.
-
     let temp = this.first; // Store a reference to the first node in a temporary variable.
 
     if (this.first === this.last) {
