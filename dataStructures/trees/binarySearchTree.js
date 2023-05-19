@@ -76,4 +76,45 @@ Insert PseudoCode
       }
     }
   }
+  contains(value) {
+    if (this.root === null) return false; // Check if the tree is empty
+    let current = this.root, // Start from the root node
+      found = false; // Initialize a variable to track if the value is found
+
+    while (current && !found) {
+      // Loop while there is a current node and value is not found
+      if (value < current.value) {
+        // Value is less than the current node's value
+        current = current.left; // Traverse to the left child node
+      } else if (value > current.value) {
+        // Value is greater than the current node's value
+        current = current.right; // Traverse to the right child node
+      } else {
+        // Value matches the current node's value
+        return true; // Value is found in the tree
+      }
+    }
+
+    return false; // Value is not found in the tree
+  }
+  BFS() {
+    let node = this.root; // Start from the root node
+    let data = []; // Array to store node values in BFS order
+    let queue = []; // Queue to process the nodes
+    queue.push(node); // Add the root node to the queue
+    while (queue.length) {
+      // Continue while there are nodes in the queue
+      node = queue.shift(); // Retrieve the first node from the queue
+      data.push(node); // Add the node's value to the data array
+      if (node.left) {
+        // If the node has a left child
+        queue.push(node.left); // Add the left child to the queue
+      }
+      if (node.right) {
+        // If the node has a right child
+        queue.push(node.right); // Add the right child to the queue
+      }
+    }
+    return data; // Return the array of node values in BFS order
+  }
 }
